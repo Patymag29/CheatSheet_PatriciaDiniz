@@ -1,0 +1,302 @@
+/* Cheat Sheet  */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300&family=Poppins:wght@400;500;700&family=Rajdhani:wght@500&display=swap');
+/*
+font-family: 'Fira Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Rajdhani', sans-serif;
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*global styles*/
+html { 
+    scroll-behavior: smooth;
+    font-size: 20px;
+    background: black;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 30px;
+    position: fixed;
+    z-index:2; /*fixed header when page moves down*/
+    background: transparent;
+}
+
+.header-title{
+    text-decoration: none;
+}
+
+
+
+
+.navbar{
+    max-width: 350px;
+    width: 100%;
+}
+
+.navbar ul{
+    display: flex; /*move links to side-by-side*/
+    align-items: center;
+    justify-content: space-around;
+}
+
+.navbar ul li{
+    list-style: none;
+}
+
+.navbar ul li a {
+    text-decoration: none; /*remove underline of links*/
+    color: white;
+    font-size: 1.4 rem;
+    font-weight: 700;
+
+
+}
+
+
+
+
+#person { /*section PERSON */
+    height: 100vh; /* view height - 100% of page */ 
+    width: 100%;
+    background: black;
+    display: flex; /*everything flexible*/
+    align-items: center; /*aligned vertically(axis Y) on the center of page. Recommended to use along with display: flex */
+}
+
+.person-content{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center; /*aligned horizontally (axis X) on the center of page */
+    align-items: center;
+    flex-direction: column; /*column format*/
+    background: black;
+}
+
+.person-content div h1{
+    color: transparent;
+    position: relative;
+    width: fit-content;
+    padding: 0px 4px; /* inner margin */
+    font-size: 4.5rem; /*better to use in responsive sites*/
+    line-height: 6rem; /*height between lines*/
+    animation: written_text .5s ease forwards; /* variable, .5s - time of animation, ease - effect of animation - soft, forwards: permanency of animation*/
+    
+}
+
+.person-content div h1 span {
+    position: absolute; /*refers to father component that has position defined. Has to include position: relative on father*/
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100%;
+    background: pink;
+    animation: written_text_box 1s ease;
+    display: inline-block;
+}
+
+.person-content div h1:nth-child(1) span{ /*first h1*/
+    animation-delay: .5s;  /*5 seconds to show animation */
+}
+.person-content div h1:nth-child(2) span{
+    animation-delay: 1.5s; /*2 seconds to show animation */
+}
+
+@keyframes written_text { /*to use animations - written-Text is a variable*/
+    100% { /* hundred percent of animation */
+        color: white;
+    }
+}
+
+
+@keyframes written_text_name { /*to use animations - written-Text is a variable*/
+    100% { /* hundred percent of animation */
+    }
+}
+
+@keyframes written_text_box { /*to use animations - written-Text is a variable*/
+    50% { 
+        width: 100%; /* hundred percent of animation */
+        left: 0;
+      /*  animation-delay: .5s;*/
+    }
+    100% { /* hundred percent of animation */
+        width: 0%;
+        left: 100%;
+    }
+}
+
+.person-name{
+    margin-top: 11rem;
+}
+
+
+/*  DIV STACK-CONTENT  */
+.stacks-content{
+    display:flex;
+   /* align-items: center; */
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 6rem; 
+} 
+
+.stacks-content h3{
+    color: white;
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.stacks {
+    display: flex;
+    align-items: center;
+    flex-direction: row;  /* keep images side by side */
+}
+
+
+.stacks ul li { 
+    display: flex;
+    align-items:center;
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+    list-style: none; /* remove bullet points of lists */
+} 
+
+
+.stacks ul li img {
+    width: 30px;
+    height: auto;
+    transition: transform .3s ease;
+}
+
+
+.stacks ul li div img:hover{
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.stacks ul li div:hover::after { /*after is a pseudo-element to include some properties */
+    content: attr(data); /* HTML, CSS, JS */
+    position:absolute;
+    top:50px;
+    left: 13px;
+    width:20px;
+    height: 20px;
+    color: white;
+    font-size:x-small;
+    align-content: center;
+} 
+
+
+/* DIV PERSON-BACKGROUND */
+.person-background{
+    position: relative;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  /*  background-image: url(./images/img1.jpg); */
+    background-image: url(./img1.jpg);
+    background-size: cover; /* adjustment of image */
+    background-position: top center;
+    z-index: 1;
+}
+
+.person-background::after{  /*setup profile-photo*/
+    content: "";
+    position:absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .7;
+    z-index: -1; /*icons overlaid from background image */
+    background:
+       linear-gradient(90deg, transparent 30%, black), /*deg = degree*/
+       linear-gradient(180deg, transparent 30%, black), /*deg = degree*/
+       linear-gradient(0deg, transparent 65%, black); /*deg = degree*/
+}
+
+.wrapper-profile-photo{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    padding: 14px;
+    margin: 20px 15px;
+    border-radius: 50%;
+    background: /*effects of photo */
+       radial-gradient(rgba(0,0,0,0.15) 60%, transparent 0),
+       radial-gradient(#000 68%, transparent 0),
+       linear-gradient(to top right, orange 0%, #ff1493 100%);
+}
+
+.profile-photo {
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+    
+    
+}
+
+.links a img {
+    width: 30px;
+    height:30px;
+    margin:10px;
+    filter: brightness(.8);
+    transition: all .3s ease;
+}
+
+.links a img:hover {
+    transform: scale(1.15rem);
+    filter: brightness(1);
+}
+
+/*END OF FIRST PAGE */
+
+#contacts{
+    display:flex;
+    flex-direction:column;
+    height: 40vh;
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+.contact-icon-content h3{
+    font-size: 1.5rem;
+    color: white;
+}
+
+.contact-icons-wrapper {
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    color: white;
+}
+
+.contact-icon-content{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 0.5rem 2rem;
+}
+
+
+
