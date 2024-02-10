@@ -12,18 +12,19 @@ font-family: 'Rajdhani', sans-serif;
     box-sizing: border-box;
 }
 
-/*global styles*/
-html { 
+/* global styles of page index.html */
+#htmlIndex {
     scroll-behavior: smooth;
     font-size: 20px;
     background: black;
+    width: 97%;
+    height: 97%;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
 }
-
 
 #header{
     display: flex;
@@ -32,7 +33,7 @@ body {
     width: 100%;
     padding: 15px 30px;
     position: fixed;
-    z-index:2; /*fixed header when page moves down*/
+    z-index: 2; /*fixed header when page moves down*/
     background: transparent;
 }
 
@@ -40,18 +41,27 @@ body {
     text-decoration: none;
 }
 
-
-
-
-.navbar{
-    max-width: 350px;
+.navbar {  /*set page to keep navigation menu fixed on top-down moviment */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    background-color: black; 
+    color: #fff; 
+    /* Outros estilos do menu */
 }
 
-.navbar ul{
-    display: flex; /*move links to side-by-side*/
+.navbar ul { /* set position of navigation items */
+    display: flex;
+    justify-content: flex-start;
     align-items: center;
-    justify-content: space-around;
+    margin: 0 px;
+    padding: 0 px;   
+}
+
+/* set position spaces between items */
+.navbar li {
+    margin-right: 40px; 
 }
 
 .navbar ul li{
@@ -63,12 +73,7 @@ body {
     color: white;
     font-size: 1.4 rem;
     font-weight: 700;
-
-
 }
-
-
-
 
 #person { /*section PERSON */
     height: 100vh; /* view height - 100% of page */ 
@@ -141,15 +146,14 @@ body {
     }
 }
 
-.person-name{
-    margin-top: 11rem;
-}
+/*.person-name{
+  margin-top: 11rem; 11rem;
+}*/
 
 
 /*  DIV STACK-CONTENT  */
 .stacks-content{
     display:flex;
-   /* align-items: center; */
     justify-content: center;
     flex-direction: column;
     margin-top: 6rem; 
@@ -212,7 +216,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  /*  background-image: url(./images/img1.jpg); */
+    background-image: url(./images/img1.jpg);
     background-image: url(./img1.jpg);
     background-size: cover; /* adjustment of image */
     background-position: top center;
@@ -251,8 +255,6 @@ body {
     max-width: 300px;
     height: auto;
     border-radius: 50%;
-    
-    
 }
 
 .links a img {
@@ -272,15 +274,16 @@ body {
 
 #contacts{
     display:flex;
-    flex-direction:column;
-    height: 40vh;
-    width: 100%;
+    flex-direction: column;
+   /* height: 40vh;
+    width: 53%; */  
     background-color: black;
     color: white;
+    font-size: 0.8rem;
 }
 
 .contact-icon-content h3{
-    font-size: 1.5rem;
+   /* font-size: 1.5rem; */
     color: white;
 }
 
@@ -297,6 +300,45 @@ body {
     flex-direction: row;
     padding: 0.5rem 2rem;
 }
+
+#footer{
+    font-size: 10px;
+}
+
+
+
+
+/*--------------pageCSS.html, pageJS.html, pageCSS.html -----------------*/
+#btnBack { /*all pages eccept index.html, hold this button BACK to back to the main page */
+    position: absolute;
+    bottom: 10px; /* Espaço entre o botão e a borda inferior*/
+    left: 0px; /* Espaço entre o botão e a borda esquerda */
+    background-color: gray; /* Cor cinza */
+    color: white; /* Cor do texto */
+    padding: 7px; /* Espaçamento interno do botão*/
+    border: none; /* Remova a borda se não for necessária*/
+    cursor: pointer; /* Altere o cursor ao passar o mouse sobre o botão */
+}
+#imgHTML, #imgCSS, #imgJS, #imgABOUT{
+    width:  500px;
+    height: 500px;
+    padding: 30px;
+}
+/*------------------------------------------------------------------------*/
+
+/*This body refers to pageCSS.html - NOTE: html mandatory to reference */
+html, #bodyCSSpage {
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    height: 100%;
+    padding: 6px;
+    background-color: gray; /* Substitua "gray" pela cor desejada */
+}
+
+
+
+
+
 
 
 
